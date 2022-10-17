@@ -24,7 +24,7 @@ public class UrlDailyAccessSchedule {
     //region LOGIC
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-    @Scheduled(cron = "0 0 * ? * *")
+    @Scheduled(cron = "0 * * ? * *")
     public void calculateDailyAccessAverage() {
         List<Url> allUrls = urlService.findAllUrls();
         LocalDateTime currentDay = LocalDateTime.now();
