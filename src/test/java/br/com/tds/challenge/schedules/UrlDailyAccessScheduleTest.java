@@ -19,8 +19,8 @@ public class UrlDailyAccessScheduleTest {
     @Test
     public void work_success() {
         for (int i = 0; i < 10; i++) {
-            urlDailyAccessSchedule.calculateDailyAccessAverage();
+            urlDailyAccessSchedule.callDailyAccessAverageCalculation();
         }
-        await().atMost(Durations.ONE_SECOND).untilAsserted(() -> verify(urlDailyAccessSchedule, times(10)).calculateDailyAccessAverage());
+        await().atMost(Durations.ONE_SECOND).untilAsserted(() -> verify(urlDailyAccessSchedule, times(10)).callDailyAccessAverageCalculation());
     }
 }

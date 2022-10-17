@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * Url entity class that will be saved on database
+ */
 @Entity
 @Data
 @NoArgsConstructor

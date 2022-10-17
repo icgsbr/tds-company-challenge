@@ -11,6 +11,9 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Schedule to update daily access metric
+ */
 @Component
 public class UrlDailyAccessSchedule {
     //region INJECTIONS
@@ -24,8 +27,11 @@ public class UrlDailyAccessSchedule {
     //region LOGIC
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
+    /**
+     * Method that occurs each minute in order to check and call daily access average calculation
+     */
     @Scheduled(cron = "0 * * ? * *")
-    public void calculateDailyAccessAverage() {
+    public void callDailyAccessAverageCalculation() {
         List<Url> allUrls = urlService.findAllUrls();
         LocalDateTime currentDay = LocalDateTime.now();
 

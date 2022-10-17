@@ -17,6 +17,9 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * API controller class
+ */
 @RestController
 @RequestMapping("/api")
 @Api(value = "Url Shortener API REST")

@@ -14,6 +14,9 @@ import java.util.ArrayList;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
+/**
+ * Class for swagger configuration
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {

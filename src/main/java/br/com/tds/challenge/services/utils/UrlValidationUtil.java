@@ -4,8 +4,16 @@ import org.springframework.stereotype.Component;
 
 import java.net.URL;
 
+/**
+ * Utility class to validate url
+ */
 @Component
 public class UrlValidationUtil {
+    /**
+     * Check whether url is valid/real or invalid/not real
+     * @param url
+     * @return boolean
+     */
     public static boolean isUrlValid(String url) {
         try {
             new URL(url).toURI();

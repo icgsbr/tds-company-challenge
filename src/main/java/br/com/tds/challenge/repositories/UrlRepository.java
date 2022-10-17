@@ -11,6 +11,9 @@ import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+/**
+ * API repository class. Responsible for database manipulations
+ */
 @Repository
 public interface UrlRepository extends JpaRepository<Url, Long> {
     //region SELECTS

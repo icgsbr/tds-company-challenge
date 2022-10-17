@@ -2,6 +2,9 @@ package br.com.tds.challenge.services.utils;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Utility class for url codification and decodification
+ */
 @Component
 public class UrlCodificationUtil {
     //region VARIABLES
@@ -11,6 +14,13 @@ public class UrlCodificationUtil {
     //endregion
 
     //region METHODS
+
+    /**
+     * Encode registered long url id, using base 10 to base 62 conversion, into short url path.
+     * (e.g: short url path -> b in http://localhost:8080/b)
+     * @param urlId
+     * @return String
+     */
     public static String encode(long urlId) {
         StringBuilder encodedString = new StringBuilder();
 
@@ -26,6 +36,11 @@ public class UrlCodificationUtil {
         return encodedString.reverse().toString();
     }
 
+    /**
+     * Decode short url path, using base 62 to base 10 conversion, into registered long url id
+     * @param shortUrlComplement
+     * @return long
+     */
     public static long decode(String shortUrlComplement) {
         char[] characters = shortUrlComplement.toCharArray();
 
