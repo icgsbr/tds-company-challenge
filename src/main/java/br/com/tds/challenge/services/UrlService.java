@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UrlService {
@@ -23,6 +24,10 @@ public class UrlService {
     public UrlService(UrlRepository urlRepository) {
         this.urlRepository = urlRepository;
     }
+    //endregion
+
+    //region VARIABLES
+    private String baseUrl;
     //endregion
 
     //region METHODS
@@ -35,8 +40,16 @@ public class UrlService {
                 new EntityNotFoundException("There is no entity with " + shortUrl));
     }
 
+    public void updateBaseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
+
     public String createShortUrl(String shortUrlComplement) {
-        return "http://localhost:8080/" + shortUrlComplement;
+        if (Objects.equals(this.baseUrl, "http://localhost:8080")) {
+          return this.baseUrl + "/api/url/" + shortUrlComplement;
+        }
+
+        return this.baseUrl + "/" + shortUrlComplement;
     }
 
     public void updateLastAccessDate(Long id, LocalDateTime lastAccess) {
